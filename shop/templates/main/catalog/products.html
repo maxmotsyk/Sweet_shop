@@ -1,4 +1,5 @@
 {% extends "../base.html" %}
+{% load static %}
 
 {% block title %}Products{% endblock %}
 
@@ -8,7 +9,7 @@
             <div class="row">
                 <div class="navbar">
 
-                    <img class="logo" src="img/1.png" alt="logo">
+                    <img class="logo" src="{% static 'img/007.png' %}" alt="logo">
 
                     <ul class="menu">
                         <li>
@@ -38,7 +39,7 @@
                         </li>
                     </ul>
 
-                    <input id="button1" type="button" value="Кошик">
+                    <input id="button" type="button" value="Кошик">
                     
                 </div>
             </div>
@@ -63,57 +64,28 @@
                     </h1>
                 </div>
 
-                <div id="card1" class="col-md-3">
-                    <div class="img">
-                        <img src="img/1.png" alt="">
-                    </div>
 
-                    <div class="text">
-                        <h3>
-                            Торт <br>
-                            300
-                        </h3>
-                    </div>
-                </div>
+                {% for popular in product %}
+                    <div id="card" class="col-md-3">
+                        <div class="img">
+                            <img src="{{ popular.image.url }}" alt="image">
+                        </div>
 
-                <div id="card2" class="col-md-3">
-                    <div class="img">
-                        <img src="img/1.png" alt="">
-                    </div>
+                        <div class="text">
 
-                    <div class="text">
-                        <h3>
-                            Торт<br>
-                            300
-                        </h3>
-                    </div>
-                </div>
+                            <h3>
+                                {{ popular.title }}
+                            </h3>
 
-                <div id="card3" class="col-md-3">
-                    <div class="img">
-                        <img src="img/1.png" alt="">
-                    </div>
+                            <h3>
+                                {{ popular.price }}
+                            </h3>
 
-                    <div class="text">
-                        <h3>
-                            Торт<br>
-                            300
-                        </h3>
+                        </div>
                     </div>
-                </div>
+                {% endfor %}
 
-                <div id="card4" class="col-md-3">
-                    <div class="img">
-                        <img src="img/1.png" alt="">
-                    </div>
-
-                    <div class="text">
-                        <h3>
-                            Торт<br>
-                            300
-                        </h3>
-                    </div>
-                </div>
+                
             </div>
         </div>
 
@@ -479,4 +451,5 @@
         </div>
 
     </section>
+
 {% endblock %}

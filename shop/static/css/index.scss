@@ -27,7 +27,6 @@ input, textarea {
 }
 
 .header {
-    margin-top: 30px;
 
     a {
         font-size: 14px;
@@ -42,7 +41,7 @@ input, textarea {
 
         .logo {
             margin: 0;
-            height: 100px;
+            height: 70px;
         }
 
         .menu {
@@ -60,16 +59,18 @@ input, textarea {
     }
 }
 
+
+
 #button1 {
     height: 35px;
     width: 116px;
-    background-color: rgba(255, 105, 0, 1);
+    background-color: rgba(255, 240, 230, 1);
     border-radius: 25px;
     border: none;
     text-align: center;
     font-size: 14px;
     font-family: 'Actor', sans-serif;
-    color: rgb(243, 243, 243);
+    color: rgb(255, 105, 0);
 }
 
 #banner {
@@ -150,6 +151,18 @@ input, textarea {
         .text {
             display: flex;
             justify-content: space-between;
+            input {
+                height: 35px;
+                width: 116px;
+                background-color: rgb(255, 105, 0);;
+                border-radius: 25px;
+                border: none;
+                text-align: center;
+                font-size: 14px;
+                font-family: 'Actor', sans-serif;
+                color: #FFFFFF; 
+            }
         }
+
     }
 }

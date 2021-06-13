@@ -9,9 +9,10 @@ class CategoryAdmin(admin.ModelAdmin):
 
 
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ('id', 'title', 'image', 'price')
+    list_display = ('id', 'title', 'image', 'price', 'is_published')
     list_display_links = ('id', 'title')
     search_fields = ('title', )
+    list_editable = ('is_published', )
 
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Product, ProductAdmin)

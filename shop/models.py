@@ -20,7 +20,7 @@ class Product(models.Model):
     title = models.CharField(max_length=255, verbose_name='Названия', blank=False)
     image = models.ImageField(verbose_name='Изображения', upload_to="cake_image", default="cake_image/err.png")
     description = models.CharField(max_length=255, verbose_name='Описание', blank=False)
-    price = models.DecimalField(verbose_name='Цена', max_digits=8, decimal_places=2)
+    price = models.DecimalField(verbose_name='Цена', max_digits=8, decimal_places=0)
     created_at = models.DateTimeField(auto_now=True, auto_now_add=False, verbose_name="Создано")
     is_published = models.BooleanField(verbose_name='Опубликовано', default=True)
 

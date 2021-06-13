@@ -1,14 +1,13 @@
 from django.shortcuts import render
-from .models import *
+from .models import Product
 
 def catalog(request):
-    return render(request, 'main/catalog/products.html')
+    product = Product.objects.all()
+    context = {"product" : product}
+    return render(request, 'main/catalog/products.html', context)
+
 
 def cart(request):
     return render(request, 'main/cart/cart.html')
 
-def sign_in(request):
-    return render(request, 'main/auth/sign_in.html')
 
-def sign_up(request):
-    return render(request, 'main/auth/sign_up.html')
