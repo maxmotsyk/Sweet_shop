@@ -14,7 +14,7 @@ pip install -r requirements.txt
 To start the web server you need to run the following sequence of commands.
 
 ```bash 
-cd sweet_shop
+cd Sweet_shop
 ```
 Next run the django web server.
 ```bash
