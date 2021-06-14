@@ -78,7 +78,7 @@
                             </h3>
 
                             <h3>
-                                {{ popular.price }}
+                                {{ popular.price }}₴
                             </h3>
 
                         </div>
@@ -88,98 +88,40 @@
                 
             </div>
         </div>
-
-        <div class="container">
-            <div id="cardAreaBig" class="row">
-                <div class="col-md-12">
-                    <h1>
-                        Торти
-                    </h1>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="img">
-                        <img src="img/1.png" alt="">
-                        <h3>
+            <div class="container">
+                <div id="cardAreaBig" class="row">
+                    <div class="col-md-12">
+                        <h1>
                             Торти
-                        </h3>
-                        <p>
-                            вываываывч
-                        </p>
+                        </h1>
                     </div>
+                        {% for item in product %}
+                            <div class="col-md-3">
+                                <div class="img">
+                                    <img src="{{ item.image.url }}" alt="">
+                                    <h3>
+                                        {{ item.title }}
+                                    </h3>
+                                    <p>
+                                        {{ item.description }}
+                                    </p>
+                                </div>
 
-                    <div class="text">
-                        <h4>
-                            500$
-                        </h4>
+                                <div class="text">
+                                    <h4>
+                                        {{ item.price }}$
+                                    </h4>
 
-                        <input id="button1" type="button" value="выбрать">
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="img">
-                        <img src="img/1.png" alt="">
-                        <h3>
-                            Торти
-                        </h3>
-                        <p>
-                            вываываывч
-                        </p>
-                    </div>
-
-                    <div class="text">
-                        <h4>
-                            500$
-                        </h4>
-
-                        <input id="button1" type="button" value="выбрать">
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="img">
-                        <img src="img/1.png" alt="">
-                        <h3>
-                            Торти
-                        </h3>
-                        <p>
-                            вываываывч
-                        </p>
-                    </div>
-
-                    <div class="text">
-                        <h4>
-                            500$
-                        </h4>
-
-                        <input id="button1" type="button" value="выбрать">
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="img">
-                        <img src="img/1.png" alt="">
-                        <h3>
-                            Торти
-                        </h3>
-                        <p>
-                            вываываывч
-                        </p>
-                    </div>
-
-                    <div class="text">
-                        <h4>
-                            500$
-                        </h4>
-
-                        <input id="button1" type="button" value="выбрать">
-                    </div>
+                                    <input id="button1" type="button" value="Выбрать">
+                                </div>
+                            </div>
+                        {% endfor %}
+        
                 </div>
             </div>
-        </div>
+    
 
-        <div class="container">
+        <!-- <div class="container">
             <div id="cardAreaBig" class="row">
                 <div class="col-md-12">
                     <h1>
@@ -187,85 +129,29 @@
                     </h1>
                 </div>
 
-                <div class="col-md-3">
-                    <div class="img">
-                        <img src="img/3.png" alt="">
-                        <h3>
-                            Торти
-                        </h3>
-                        <p>
-                            вываываывч
-                        </p>
-                    </div>
+                {% if category.name == 'Чизкейк' %}
+                    {% for item in product %}
+                        <div class="col-md-3">
+                            <div class="img">
+                                <img src="{{ item.image.url }}" alt="">
+                                <h3>
+                                    {{ item.title }}
+                                </h3>
+                                <p>
+                                    {{ item.description }}
+                                </p>
+                            </div>
 
-                    <div class="text">
-                        <h4>
-                            500$
-                        </h4>
+                            <div class="text">
+                                <h4>
+                                    {{ item.price }}$
+                                </h4>
 
-                        <input id="button1" type="button" value="выбрать">
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="img">
-                        <img src="img/3.png" alt="">
-                        <h3>
-                            Торти
-                        </h3>
-                        <p>
-                            вываываывч
-                        </p>
-                    </div>
-
-                    <div class="text">
-                        <h4>
-                            500$
-                        </h4>
-
-                        <input id="button1" type="button" value="выбрать">
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="img">
-                        <img src="img/3.png" alt="">
-                        <h3>
-                            Торти
-                        </h3>
-                        <p>
-                            вываываывч
-                        </p>
-                    </div>
-
-                    <div class="text">
-                        <h4>
-                            500$
-                        </h4>
-
-                        <input id="button1" type="button" value="выбрать">
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="img">
-                        <img src="img/3.png" alt="">
-                        <h3>
-                            Торти
-                        </h3>
-                        <p>
-                            вываываывч
-                        </p>
-                    </div>
-
-                    <div class="text">
-                        <h4>
-                            500$
-                        </h4>
-
-                        <input id="button1" type="button" value="выбрать">
-                    </div>
-                </div>
+                                <input id="button1" type="button" value="Выбрать">
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endif %}
             </div>
         </div>
 
@@ -273,89 +159,33 @@
             <div id="cardAreaBig" class="row">
                 <div class="col-md-12">
                     <h1>
-                        Маршмелоу
+                        Маршмеллоу
                     </h1>
                 </div>
 
-                <div class="col-md-3">
-                    <div class="img">
-                        <img src="img/5.png" alt="">
-                        <h3>
-                            Торти
-                        </h3>
-                        <p>
-                            вываываывч
-                        </p>
-                    </div>
+                {% if category.name == 'Маршмеллоу' %}
+                    {% for item in product %}
+                        <div class="col-md-3">
+                            <div class="img">
+                                <img src="{{ item.image.url }}" alt="">
+                                <h3>
+                                    {{ item.title }}
+                                </h3>
+                                <p>
+                                    {{ item.description }}
+                                </p>
+                            </div>
 
-                    <div class="text">
-                        <h4>
-                            500$
-                        </h4>
+                            <div class="text">
+                                <h4>
+                                    {{ item.price }}$
+                                </h4>
 
-                        <input id="button1" type="button" value="выбрать">
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="img">
-                        <img src="img/5.png" alt="">
-                        <h3>
-                            Торти
-                        </h3>
-                        <p>
-                            вываываывч
-                        </p>
-                    </div>
-
-                    <div class="text">
-                        <h4>
-                            500$
-                        </h4>
-
-                        <input id="button1" type="button" value="выбрать">
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="img">
-                        <img src="img/5.png" alt="">
-                        <h3>
-                            Торти
-                        </h3>
-                        <p>
-                            вываываывч
-                        </p>
-                    </div>
-
-                    <div class="text">
-                        <h4>
-                            500$
-                        </h4>
-
-                        <input id="button1" type="button" value="выбрать">
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="img">
-                        <img src="img/5.png" alt="">
-                        <h3>
-                            Торти
-                        </h3>
-                        <p>
-                            вываываывч
-                        </p>
-                    </div>
-
-                    <div class="text">
-                        <h4>
-                            500$
-                        </h4>
-
-                        <input id="button1" type="button" value="выбрать">
-                    </div>
-                </div>
+                                <input id="button1" type="button" value="Выбрать">
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endif %}
             </div>
         </div>
 
@@ -367,88 +197,32 @@
                     </h1>
                 </div>
 
-                <div class="col-md-3">
-                    <div class="img">
-                        <img src="img/4.png" alt="">
-                        <h3>
-                            Торти
-                        </h3>
-                        <p>
-                            вываываывч
-                        </p>
-                    </div>
+                {% if category.name == 'Капкейк' %}
+                    {% for item in product %}
+                        <div class="col-md-3">
+                            <div class="img">
+                                <img src="{{ item.image.url }}" alt="">
+                                <h3>
+                                    {{ item.title }}
+                                </h3>
+                                <p>
+                                    {{ item.description }}
+                                </p>
+                            </div>
 
-                    <div class="text">
-                        <h4>
-                            500$
-                        </h4>
+                            <div class="text">
+                                <h4>
+                                    {{ item.price }}$
+                                </h4>
 
-                        <input id="button1" type="button" value="выбрать">
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="img">
-                        <img src="img/4.png" alt="">
-                        <h3>
-                            Торти
-                        </h3>
-                        <p>
-                            вываываывч
-                        </p>
-                    </div>
-
-                    <div class="text">
-                        <h4>
-                            500$
-                        </h4>
-
-                        <input id="button1" type="button" value="выбрать">
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="img">
-                        <img src="img/4.png" alt="">
-                        <h3>
-                            Торти
-                        </h3>
-                        <p>
-                            вываываывч
-                        </p>
-                    </div>
-
-                    <div class="text">
-                        <h4>
-                            500$
-                        </h4>
-
-                        <input id="button1" type="button" value="выбрать">
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="img">
-                        <img src="img/4.png" alt="">
-                        <h3>
-                            Торти
-                        </h3>
-                        <p>
-                            вываываывч
-                        </p>
-                    </div>
-
-                    <div class="text">
-                        <h4>
-                            500$
-                        </h4>
-
-                        <input id="button1" type="button" value="выбрать">
-                    </div>
-                </div>
+                                <input id="button1" type="button" value="Выбрать">
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endif %}
 
             </div>
-        </div>
+        </div> -->
 
     </section>
 
