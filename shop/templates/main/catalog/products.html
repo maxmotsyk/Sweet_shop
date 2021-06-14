@@ -65,7 +65,7 @@
                 </div>
 
 
-                {% for popular in product %}
+                {% for popular in product_sort %}
                     <div id="card" class="col-md-3">
                         <div class="img">
                             <img src="{{ popular.image.url }}" alt="image">
@@ -88,141 +88,139 @@
                 
             </div>
         </div>
-            <div class="container">
-                <div id="cardAreaBig" class="row">
-                    <div class="col-md-12">
-                        <h1>
-                            Торти
-                        </h1>
+
+                    <div class="container">
+                        <div id="cardAreaBig" class="row">
+                            <div class="col-md-12">
+                                <h1>
+                                    Торти
+                                </h1>
+                            </div>
+                            {% for item in product %}
+                                {% if item.category == "Торт" %}
+                                    <div class="col-md-3">
+                                        <div class="img">
+                                            <img src="{{ item.image.url }}" alt="">
+                                            <h3>
+                                                {{ item.title }}
+                                            </h3>
+                                            <p>
+                                                {{ item.description }}
+                                            </p>
+                                        </div>
+
+                                        <div class="text">
+                                            <h4>
+                                                {{ item.price }}$
+                                            </h4>
+
+                                            <input id="button1" type="button" value="Выбрать">
+                                        </div>
+                                    </div>
+                                {% endif %}  
+                            {% endfor %}   
+                        </div>
                     </div>
-                        {% for item in product %}
-                            <div class="col-md-3">
-                                <div class="img">
-                                    <img src="{{ item.image.url }}" alt="">
-                                    <h3>
-                                        {{ item.title }}
-                                    </h3>
-                                    <p>
-                                        {{ item.description }}
-                                    </p>
-                                </div>
 
-                                <div class="text">
-                                    <h4>
-                                        {{ item.price }}$
-                                    </h4>
-
-                                    <input id="button1" type="button" value="Выбрать">
-                                </div>
+                    <div class="container">
+                        <div id="cardAreaBig" class="row">
+                            <div class="col-md-12">
+                                <h1>
+                                    Чизкейки
+                                </h1>
                             </div>
-                        {% endfor %}
+                            {% for item in product %}
+                                {% if item.category == "Чизкейк" %}
+                                    <div class="col-md-3">
+                                        <div class="img">
+                                            <img src="{{ item.image.url }}" alt="">
+                                            <h3>
+                                                {{ item.title }}
+                                            </h3>
+                                            <p>
+                                                {{ item.description }}
+                                            </p>
+                                        </div>
+            
+                                        <div class="text">
+                                            <h4>
+                                                {{ item.price }}$
+                                            </h4>
+            
+                                            <input id="button1" type="button" value="Выбрать">
+                                        </div>
+                                    </div>
+                                {% endif %}  
+                            {% endfor %} 
+                        </div>
+                    </div>
+
+                    <div class="container">
+                        <div id="cardAreaBig" class="row">
+                            <div class="col-md-12">
+                                <h1>
+                                    Маршмеллоу
+                                </h1>
+                            </div>
+                            {% for item in product %}
+                                {% if item.category == "Маршмеллоу" %}
+                                    <div class="col-md-3">
+                                        <div class="img">
+                                            <img src="{{ item.image.url }}" alt="">
+                                            <h3>
+                                                {{ item.title }}
+                                            </h3>
+                                            <p>
+                                                {{ item.description }}
+                                            </p>
+                                        </div>
+
+                                        <div class="text">
+                                            <h4>
+                                                {{ item.price }}$
+                                            </h4>
+
+                                            <input id="button1" type="button" value="Выбрать">
+                                        </div>
+                                    </div>
+                                {% endif %}  
+                            {% endfor %} 
+                        </div>
+                    </div>
+                
+                    <div class="container">
+                        <div id="cardAreaBig" class="row">
+                            <div class="col-md-12">
+                                <h1>
+                                    Капкейки
+                                </h1>
+                            </div>
+                            {% for item in product %}
+                                {% if item.category == "Капкейки" %}
+                                    <div class="col-md-3">
+                                        <div class="img">
+                                            <img src="{{ item.image.url }}" alt="">
+                                            <h3>
+                                                {{ item.title }}
+                                            </h3>
+                                            <p>
+                                                {{ item.description }}
+                                            </p>
+                                        </div>
+            
+                                        <div class="text">
+                                            <h4>
+                                                {{ item.price }}$
+                                            </h4>
+                                            <input id="button1" type="button" value="Выбрать">
+                                        </div>
+                                    </div>
+                                {% endif %}  
+                            {% endfor %} 
+                        </div>
+                    </div>
         
-                </div>
-            </div>
     
-
-        <!-- <div class="container">
-            <div id="cardAreaBig" class="row">
-                <div class="col-md-12">
-                    <h1>
-                        Чизкейки
-                    </h1>
-                </div>
-
-                {% if category.name == 'Чизкейк' %}
-                    {% for item in product %}
-                        <div class="col-md-3">
-                            <div class="img">
-                                <img src="{{ item.image.url }}" alt="">
-                                <h3>
-                                    {{ item.title }}
-                                </h3>
-                                <p>
-                                    {{ item.description }}
-                                </p>
-                            </div>
-
-                            <div class="text">
-                                <h4>
-                                    {{ item.price }}$
-                                </h4>
-
-                                <input id="button1" type="button" value="Выбрать">
-                            </div>
-                        </div>
-                    {% endfor %}
-                {% endif %}
-            </div>
-        </div>
-
-        <div class="container">
-            <div id="cardAreaBig" class="row">
-                <div class="col-md-12">
-                    <h1>
-                        Маршмеллоу
-                    </h1>
-                </div>
-
-                {% if category.name == 'Маршмеллоу' %}
-                    {% for item in product %}
-                        <div class="col-md-3">
-                            <div class="img">
-                                <img src="{{ item.image.url }}" alt="">
-                                <h3>
-                                    {{ item.title }}
-                                </h3>
-                                <p>
-                                    {{ item.description }}
-                                </p>
-                            </div>
-
-                            <div class="text">
-                                <h4>
-                                    {{ item.price }}$
-                                </h4>
-
-                                <input id="button1" type="button" value="Выбрать">
-                            </div>
-                        </div>
-                    {% endfor %}
-                {% endif %}
-            </div>
-        </div>
-
-        <div class="container">
-            <div id="cardAreaBig" class="row">
-                <div class="col-md-12">
-                    <h1>
-                        Капкейки
-                    </h1>
-                </div>
-
-                {% if category.name == 'Капкейк' %}
-                    {% for item in product %}
-                        <div class="col-md-3">
-                            <div class="img">
-                                <img src="{{ item.image.url }}" alt="">
-                                <h3>
-                                    {{ item.title }}
-                                </h3>
-                                <p>
-                                    {{ item.description }}
-                                </p>
-                            </div>
-
-                            <div class="text">
-                                <h4>
-                                    {{ item.price }}$
-                                </h4>
-
-                                <input id="button1" type="button" value="Выбрать">
-                            </div>
-                        </div>
-                    {% endfor %}
-                {% endif %}
-
-            </div>
-        </div> -->
 
     </section>
 
