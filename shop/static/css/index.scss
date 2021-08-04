@@ -38,6 +38,7 @@ input, textarea {
         display: flex;
         justify-content: space-around;
         align-items: center;
+        background-color: #FFFFFF;
 
         .logo {
             margin: 0;
@@ -56,6 +57,18 @@ input, textarea {
                 }
             }
         }
+
+        input {
+            height: 35px;
+            width: 116px;
+            background-color: rgb(255, 105, 0);;
+            border-radius: 25px;
+            border: none;
+            text-align: center;
+            font-size: 14px;
+            font-family: 'Actor', sans-serif;
+            color: #FFFFFF; 
+        }
     }
 }
 
@@ -64,13 +77,13 @@ input, textarea {
 #button1 {
     height: 35px;
     width: 116px;
-    background-color: rgba(255, 240, 230, 1);
+    background-color: #FFF0E6;
     border-radius: 25px;
     border: none;
     text-align: center;
     font-size: 14px;
     font-family: 'Actor', sans-serif;
-    color: rgb(255, 105, 0);
+    color: #FF6900;
 }
 
 #banner {
@@ -98,7 +111,7 @@ input, textarea {
         border-radius: 10px;
 
         img {
-            width: 80px;
+            width: 76px;
         }
 
         h3 {
@@ -152,17 +165,7 @@ input, textarea {
             display: flex;
             justify-content: space-between;
             
-            input {
-                height: 35px;
-                width: 116px;
-                background-color: rgb(255, 105, 0);;
-                border-radius: 25px;
-                border: none;
-                text-align: center;
-                font-size: 14px;
-                font-family: 'Actor', sans-serif;
-                color: #FFFFFF; 
-            }
+        
         }
 
     }

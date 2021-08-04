@@ -1,18 +1,16 @@
 from django.shortcuts import render
+
 from .models import Product
- 
 
-def catalog(request):
-    product_sort = Product.objects.all()[:4]
-    product = Product.objects.all()
+
+def index(request):
+    products_sort = Product.objects.all()[:4]
+    products = Product.objects.all()
     context = {
-        "product_sort" : product_sort,
-        "product" : product,
+        "product_sort" : products_sort,
+        "product" : products,
      }
-    return render(request, 'main/catalog/products.html', context)
+    return render(request, 'main/index.html', context)
 
-
-def cart(request):
-    return render(request, 'main/cart/cart.html')
 
 

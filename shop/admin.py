@@ -1,7 +1,9 @@
 from django.contrib import admin
+
 from .models import Product
 
 
+@admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
     list_display = ('id', 'title', 'category' ,'image', 'price', 'is_published')
     list_display_links = ('id', 'title')
@@ -9,6 +11,6 @@ class ProductAdmin(admin.ModelAdmin):
     list_editable = ('is_published', )
 
 
-admin.site.register(Product, ProductAdmin)
+
 
 

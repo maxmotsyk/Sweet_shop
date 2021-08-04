@@ -40,6 +40,7 @@ input, textarea {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  background-color: #FFFFFF;
 }
 
 .header .navbar .logo {
@@ -64,16 +65,28 @@ input, textarea {
   color: #ff6900;
 }
 
-#button1 {
+.header .navbar input {
   height: 35px;
   width: 116px;
-  background-color: #fff0e6;
+  background-color: #ff6900;
   border-radius: 25px;
   border: none;
   text-align: center;
   font-size: 14px;
   font-family: 'Actor', sans-serif;
-  color: #ff6900;
+  color: #FFFFFF;
+}
+
+#button1 {
+  height: 35px;
+  width: 116px;
+  background-color: #FFF0E6;
+  border-radius: 25px;
+  border: none;
+  text-align: center;
+  font-size: 14px;
+  font-family: 'Actor', sans-serif;
+  color: #FF6900;
 }
 
 #banner {
@@ -108,7 +121,7 @@ input, textarea {
 }
 
 #cardAreaSmall .col-md-3 img {
-  width: 80px;
+  width: 76px;
 }
 
 #cardAreaSmall .col-md-3 h3 {
@@ -165,17 +178,5 @@ input, textarea {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-}
-
-#cardAreaBig .col-md-3 .text input {
-  height: 35px;
-  width: 116px;
-  background-color: #ff6900;
-  border-radius: 25px;
-  border: none;
-  text-align: center;
-  font-size: 14px;
-  font-family: 'Actor', sans-serif;
-  color: #FFFFFF;
 }
 /*# sourceMappingURL=index.css.map */
