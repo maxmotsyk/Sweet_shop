@@ -1,73 +1,71 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'main/base.html' %}
+{% load static %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Солоке життя</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <title>Document</title>
-    <link rel="shortcut icon" href="img/logo.png" type="image/png">
-</head>
+{% block title %}Солодке життя{% endblock %}
 
-<body>
+{% block content %}
     <header class="header">
         <div class="container">
             <div class="row">
                 <nav class="navbar">
                     
                     <div class="col-md-3">
-                        <img class="logo" src="img/logo.png" alt="logo">
+                        <img class="logo" src="{% static 'img/favicon.png' %}" alt="logo">
                     </div>
                     
                     <div class="col-md-6">
                         <ul class="menu">
                             <li>
-                                <a href="">
+                                <a href="#cake">
                                     Торти
                                 </a>
                             </li>
                             <li>
-                                <a href="">
+                                <a href="#chesscake">
                                     Чизкейки
                                 </a>
                             </li>
                             <li>
-                                <a href="">
+                                <a href="#marshmello">
                                     Маршмелоу
                                 </a>
                             </li>
                             <li>
-                                <a href="">
+                                <a href="#capcake">
                                     Капкейки
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    Про нас 
                                 </a>
                             </li>
                         </ul>
                     </div>
                     
                     <div id="login_bacet" class="col-md-3">
-                            <div class="login">
-                                <img src="img/login.png" alt="">
-                                <a>Увійти</a>
-                            </div>
+                        <a href="{% url 'cart:cart_detail' %}">
                             <div class="bacet">
-                                <img src="img/shopping-basket.png" alt="">
-                                <div class="line"></div>
-                                <a>2</a>
+                                    {% with total_items=cart|length %}
+                                        {% if cart|length > 0 %}
+                                            Корзина<div class="line"></div>
+                                            {{ total_items }}
+                                            {% else %}
+                                            Корзина
+                                        {% endif %}
+                                    {% endwith %}
                             </div>
+                        </a>
                     </div>
                     
                 </nav>
             </div>
         </div>
     </header>
+    
+    {% if messages %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {% for message in messages %}
+                {{ message }}
+            {% endfor %}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endif %}
 
         <section class="section">
             <div class="container">
@@ -86,74 +84,27 @@
                             Новинки та популярне
                         </h1>
                     </div>
-
-                    <div id="card1" class="col-md-3  col-sm-6">
+                    {% for popular in products_sort %}
+                    <div id="card" class="col-md-3  col-sm-6">
                         <div class="cardS">
                             <div class="img">
-                                <img src="img/1.png" alt="">
+                                <img src="{{ popular.image.url }}" alt="">
                             </div>
 
                             <div class="text">
                                 <h3>
-                                    Торт
+                                    {{ popular.title }}
                                 </h3>
                                 <a>
-                                    от 300$
+                                    от {{ popular.price }}$
                                 </a>
                             </div>
                         </div>
                     </div>
+                    {% endfor %}
+                    
 
-                    <div id="card2" class="col-md-3 col-sm-6">
-                        <div class="cardS">
-                            <div class="img">
-                                <img src="img/1.png" alt="">
-                            </div>
-
-                            <div class="text">
-                                <h3>
-                                    Торт
-                                </h3>
-                                <a>
-                                    от 300$
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="card3" class="col-md-3 col-sm-6">
-                        <div class="cardS">
-                            <div class="img">
-                                <img src="img/1.png" alt="">
-                            </div>
-
-                            <div class="text">
-                                <h3>
-                                    Торт
-                                </h3>
-                                <a>
-                                    от 300$
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="card4" class="col-md-3 col-sm-6">
-                        <div class="cardS">
-                            <div class="img">
-                                <img src="img/1.png" alt="">
-                            </div>
-
-                            <div class="text">
-                                <h3>
-                                    Торт
-                                </h3>
-                                <a>
-                                    от 300$
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                   
                     
                 </div>
             </div>
@@ -164,152 +115,52 @@
                             <h1>
                                 Торти
                             </h1>
-                            <p>
+                            <p id="cake">
                                 01
                             </p>
                         </div>
-    
-                        <div class="col-md-3  col-sm-6">
-                
-                            <div class="cardBig">
-                                <div class="front">
+                        {% for item in products %}
+                            {% if item.category == "Cake" %}
+                            <div class="col-md-3  col-sm-6">
 
-                                    <div class="img">
-                                        <img src="img/1.png" alt="">
-                                        <h3>
-                                            Торти
-                                        </h3>
+                                <div class="cardBig">
+                                    <div class="front">
+
+                                        <div class="img">
+                                            <img src="{{ item.image.url }}" alt="">
+                                            <h3>
+                                                {{ item.title }}
+                                            </h3>
+                                        </div>
+
                                     </div>
 
-                                </div>
-
-                                <div class="back">
-                                    <h3>
-                                        Склад
-                                    </h3>
-                                    <p>dsdfdscsdcsd<br>
-                                        dfsdfdsfdad
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="areabuton">
-                                <div class="text">
-                                    <h4>
-                                        500$
-                                    </h4>
-        
-                                    <input id="button2" type="button" value="+">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3  col-sm-6">
-                
-                            <div class="cardBig">
-                                <div class="front">
-
-                                    <div class="img">
-                                        <img src="img/1.png" alt="">
+                                    <div class="back">
                                         <h3>
-                                            Торти
+                                            Склад
                                         </h3>
+                                        <p>
+                                            {{ item.description }}
+                                        </p>
                                     </div>
-
                                 </div>
 
-                                <div class="back">
-                                    <h3>
-                                        Склад
-                                    </h3>
-                                    <p>dsdfdscsdcsd<br>
-                                        dfsdfdsfdad
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="areabuton">
-                                <div class="text">
-                                    <h4>
-                                        500$
-                                    </h4>
-        
-                                    <input id="button2" type="button" value="+">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3  col-sm-6">
-                
-                            <div class="cardBig">
-                                <div class="front">
-
-                                    <div class="img">
-                                        <img src="img/1.png" alt="">
-                                        <h3>
-                                            Торти
-                                        </h3>
+                                <div class="areabuton">
+                                    <div class="text">
+                                        <h4>
+                                            {{ item.price }}$
+                                        </h4>
+                                        <form action="{% url 'cart:cart_add' item.id %}" method="post">
+                                            {{ cart_product_form }}
+                                            {% csrf_token %}
+                                            <input id="button2" type="submit" value="+">    
+                                        </form>                              
                                     </div>
-
-                                </div>
-
-                                <div class="back">
-                                    <h3>
-                                        Склад
-                                    </h3>
-                                    <p>dsdfdscsdcsd<br>
-                                        dfsdfdsfdad
-                                    </p>
                                 </div>
                             </div>
-
-                            <div class="areabuton">
-                                <div class="text">
-                                    <h4>
-                                        500$
-                                    </h4>
-        
-                                    <input id="button2" type="button" value="+">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3  col-sm-6">
-                
-                            <div class="cardBig">
-                                <div class="front">
-
-                                    <div class="img">
-                                        <img src="img/1.png" alt="">
-                                        <h3>
-                                            Торти
-                                        </h3>
-                                    </div>
-
-                                </div>
-
-                                <div class="back">
-                                    <h3>
-                                        Склад
-                                    </h3>
-                                    <p>dsdfdscsdcsd<br>
-                                        dfsdfdsfdad
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="areabuton">
-                                <div class="text">
-                                    <h4>
-                                        500$
-                                    </h4>
-        
-                                    <input id="button2" type="button" value="+">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                            {% endif %}
+                        {% endfor %}
+                        
 
             <div class="container">
                 <div id="cardAreaBig" class="row">
@@ -317,152 +168,49 @@
                             <h1>
                                 Безе
                             </h1>
-                            <p>
+                            <p id="chesscake">
                                 02
                             </p>
                         </div>
 
-                        <div class="col-md-3  col-sm-6">
-                
-                            <div class="cardBig">
-                                <div class="front">
+                        {% for item in products %}
+                            {% if item.category == "Marshmello" %}
+                            <div class="col-md-3  col-sm-6">
 
-                                    <div class="img">
-                                        <img src="img/1.png" alt="">
-                                        <h3>
-                                            Торти
-                                        </h3>
+                                <div class="cardBig">
+                                    <div class="front">
+
+                                        <div class="img">
+                                            <img src="{{ item.image.url }}" alt="">
+                                            <h3>
+                                                {{ item.title }}
+                                            </h3>
+                                        </div>
+
                                     </div>
 
-                                </div>
-
-                                <div class="back">
-                                    <h3>
-                                        Склад
-                                    </h3>
-                                    <p>dsdfdscsdcsd<br>
-                                        dfsdfdsfdad
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="areabuton">
-                                <div class="text">
-                                    <h4>
-                                        500$
-                                    </h4>
-        
-                                    <input id="button2" type="button" value="+">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3  col-sm-6">
-                
-                            <div class="cardBig">
-                                <div class="front">
-
-                                    <div class="img">
-                                        <img src="img/1.png" alt="">
+                                    <div class="back">
                                         <h3>
-                                            Торти
+                                            Склад
                                         </h3>
+                                        <p>
+                                            {{ item.description }}
+                                        </p>
                                     </div>
-
                                 </div>
 
-                                <div class="back">
-                                    <h3>
-                                        Склад
-                                    </h3>
-                                    <p>dsdfdscsdcsd<br>
-                                        dfsdfdsfdad
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="areabuton">
-                                <div class="text">
-                                    <h4>
-                                        500$
-                                    </h4>
-        
-                                    <input id="button2" type="button" value="+">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3  col-sm-6">
-                
-                            <div class="cardBig">
-                                <div class="front">
-
-                                    <div class="img">
-                                        <img src="img/1.png" alt="">
-                                        <h3>
-                                            Торти
-                                        </h3>
+                                <div class="areabuton">
+                                    <div class="text">
+                                        <h4>
+                                            {{ item.price }}$
+                                        </h4>
+            
+                                        <input id="button2" type="button" value="+">
                                     </div>
-
-                                </div>
-
-                                <div class="back">
-                                    <h3>
-                                        Склад
-                                    </h3>
-                                    <p>dsdfdscsdcsd<br>
-                                        dfsdfdsfdad
-                                    </p>
                                 </div>
                             </div>
-
-                            <div class="areabuton">
-                                <div class="text">
-                                    <h4>
-                                        500$
-                                    </h4>
-        
-                                    <input id="button2" type="button" value="+">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3  col-sm-6">
-                
-                            <div class="cardBig">
-                                <div class="front">
-
-                                    <div class="img">
-                                        <img src="img/1.png" alt="">
-                                        <h3>
-                                            Торти
-                                        </h3>
-                                    </div>
-
-                                </div>
-
-                                <div class="back">
-                                    <h3>
-                                        Склад
-                                    </h3>
-                                    <p>dsdfdscsdcsd<br>
-                                        dfsdfdsfdad
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="areabuton">
-                                <div class="text">
-                                    <h4>
-                                        500$
-                                    </h4>
-        
-                                    <input id="button2" type="button" value="+">
-                                </div>
-                            </div>
-                        </div>
-                </div>
-            </div>
+                            {% endif %}
+                        {% endfor %}
                         
     
             <div class="container">
@@ -471,152 +219,49 @@
                             <h1>
                                 Капкейк
                             </h1>
-                            <p>
+                            <p id="marshmello">
                                 03
                             </p>
                         </div>
 
-                        <div class="col-md-3  col-sm-6">
-                
-                            <div class="cardBig">
-                                <div class="front">
+                        {% for item in products %}
+                            {% if item.category == "Capcake" %}
+                            <div class="col-md-3  col-sm-6">
 
-                                    <div class="img">
-                                        <img src="img/1.png" alt="">
-                                        <h3>
-                                            Торти
-                                        </h3>
+                                <div class="cardBig">
+                                    <div class="front">
+
+                                        <div class="img">
+                                            <img src="{{ item.image.url }}" alt="">
+                                            <h3>
+                                                {{ item.title }}
+                                            </h3>
+                                        </div>
+
                                     </div>
 
-                                </div>
-
-                                <div class="back">
-                                    <h3>
-                                        Склад
-                                    </h3>
-                                    <p>dsdfdscsdcsd<br>
-                                        dfsdfdsfdad
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="areabuton">
-                                <div class="text">
-                                    <h4>
-                                        500$
-                                    </h4>
-        
-                                    <input id="button2" type="button" value="+">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3  col-sm-6">
-                
-                            <div class="cardBig">
-                                <div class="front">
-
-                                    <div class="img">
-                                        <img src="img/1.png" alt="">
+                                    <div class="back">
                                         <h3>
-                                            Торти
+                                            Склад
                                         </h3>
+                                        <p>
+                                            {{ item.description }}
+                                        </p>
                                     </div>
-
                                 </div>
 
-                                <div class="back">
-                                    <h3>
-                                        Склад
-                                    </h3>
-                                    <p>dsdfdscsdcsd<br>
-                                        dfsdfdsfdad
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="areabuton">
-                                <div class="text">
-                                    <h4>
-                                        500$
-                                    </h4>
-        
-                                    <input id="button2" type="button" value="+">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3  col-sm-6">
-                
-                            <div class="cardBig">
-                                <div class="front">
-
-                                    <div class="img">
-                                        <img src="img/1.png" alt="">
-                                        <h3>
-                                            Торти
-                                        </h3>
+                                <div class="areabuton">
+                                    <div class="text">
+                                        <h4>
+                                            {{ item.price }}$
+                                        </h4>
+            
+                                        <input id="button2" type="button" value="+">
                                     </div>
-
-                                </div>
-
-                                <div class="back">
-                                    <h3>
-                                        Склад
-                                    </h3>
-                                    <p>dsdfdscsdcsd<br>
-                                        dfsdfdsfdad
-                                    </p>
                                 </div>
                             </div>
-
-                            <div class="areabuton">
-                                <div class="text">
-                                    <h4>
-                                        500$
-                                    </h4>
-        
-                                    <input id="button2" type="button" value="+">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3  col-sm-6">
-                
-                            <div class="cardBig">
-                                <div class="front">
-
-                                    <div class="img">
-                                        <img src="img/1.png" alt="">
-                                        <h3>
-                                            Торти
-                                        </h3>
-                                    </div>
-
-                                </div>
-
-                                <div class="back">
-                                    <h3>
-                                        Склад
-                                    </h3>
-                                    <p>dsdfdscsdcsd<br>
-                                        dfsdfdsfdad
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="areabuton">
-                                <div class="text">
-                                    <h4>
-                                        500$
-                                    </h4>
-        
-                                    <input id="button2" type="button" value="+">
-                                </div>
-                            </div>
-                        </div>
-                </div>
-            </div>
+                            {% endif %}
+                        {% endfor %}
 
             <div class="container">
                 <div id="cardAreaBig" class="row">
@@ -624,157 +269,54 @@
                             <h1>
                                 Чизкейк
                             </h1>
-                            <p>
+                            <p id="capcake">
                                 04
                             </p>
                         </div>
                         
-                        <div class="col-md-3  col-sm-6">
-                
-                            <div class="cardBig">
-                                <div class="front">
+                        {% for item in products %}
+                            {% if item.category == "Chesscake" %}
+                            <div class="col-md-3  col-sm-6">
 
-                                    <div class="img">
-                                        <img src="img/1.png" alt="">
-                                        <h3>
-                                            Торти
-                                        </h3>
+                                <div class="cardBig">
+                                    <div class="front">
+
+                                        <div class="img">
+                                            <img src="{{ item.image.url }}" alt="">
+                                            <h3>
+                                                {{ item.title }}
+                                            </h3>
+                                        </div>
+
                                     </div>
 
-                                </div>
-
-                                <div class="back">
-                                    <h3>
-                                        Склад
-                                    </h3>
-                                    <p>dsdfdscsdcsd<br>
-                                        dfsdfdsfdad
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="areabuton">
-                                <div class="text">
-                                    <h4>
-                                        500$
-                                    </h4>
-        
-                                    <input id="button2" type="button" value="+">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3  col-sm-6">
-                
-                            <div class="cardBig">
-                                <div class="front">
-
-                                    <div class="img">
-                                        <img src="img/1.png" alt="">
+                                    <div class="back">
                                         <h3>
-                                            Торти
+                                            Склад
                                         </h3>
+                                        <p>
+                                            {{ item.description }}
+                                        </p>
                                     </div>
-
                                 </div>
 
-                                <div class="back">
-                                    <h3>
-                                        Склад
-                                    </h3>
-                                    <p>dsdfdscsdcsd<br>
-                                        dfsdfdsfdad
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="areabuton">
-                                <div class="text">
-                                    <h4>
-                                        500$
-                                    </h4>
-        
-                                    <input id="button2" type="button" value="+">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3  col-sm-6">
-                
-                            <div class="cardBig">
-                                <div class="front">
-
-                                    <div class="img">
-                                        <img src="img/1.png" alt="">
-                                        <h3>
-                                            Торти
-                                        </h3>
+                                <div class="areabuton">
+                                    <div class="text">
+                                        <h4>
+                                            {{ item.price }}$
+                                        </h4>
+            
+                                        <input id="button2" type="button" value="+">
                                     </div>
-
-                                </div>
-
-                                <div class="back">
-                                    <h3>
-                                        Склад
-                                    </h3>
-                                    <p>dsdfdscsdcsd<br>
-                                        dfsdfdsfdad
-                                    </p>
                                 </div>
                             </div>
+                            {% endif %}
+                        {% endfor %}
 
-                            <div class="areabuton">
-                                <div class="text">
-                                    <h4>
-                                        500$
-                                    </h4>
-        
-                                    <input id="button2" type="button" value="+">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3  col-sm-6">
-                
-                            <div class="cardBig">
-                                <div class="front">
-
-                                    <div class="img">
-                                        <img src="img/1.png" alt="">
-                                        <h3>
-                                            Торти
-                                        </h3>
-                                    </div>
-
-                                </div>
-
-                                <div class="back">
-                                    <h3>
-                                        Склад
-                                    </h3>
-                                    <p>dsdfdscsdcsd<br>
-                                        dfsdfdsfdad
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="areabuton">
-                                <div class="text">
-                                    <h4>
-                                        500$
-                                    </h4>
-        
-                                    <input id="button2" type="button" value="+">
-                                </div>
-                            </div>
-                        </div>
                 </div>
             </div>
-
-                    </div>
-                </div>
-            </div>
-        </section>
+        </div>
+    </section>
 
     <footer>
         <div class="container">
@@ -785,13 +327,11 @@
                     </div>
 
                     <div class="link">
-                        <a href="https://instagram.com/ksenia_tort?utm_medium=copy_link"><img src="img/instagram (1).png" alt=""></a>
-                        <a href=""><img src="img/facebook (1).png" alt=""></a>
+                        <a href="https://instagram.com/facebook" target="blank"><i class="bi bi-facebook"></i></a>
+                        <a href="https://instagram.com/ksenia_tort?utm_medium=copy_link"><i class="bi bi-instagram"></i></a>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
-</body>
-
-</html>
+{% endblock %}

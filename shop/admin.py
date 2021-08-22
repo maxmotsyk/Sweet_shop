@@ -6,10 +6,11 @@ from .models import Product
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ('id', 'title', 'category' ,'image', 'price', 'is_published')
+    list_display = ('id', 'title', 'slug','category' ,'image_show', 'price', 'is_published')
     list_display_links = ('id', 'title')
     search_fields = ('title', 'category')
-    list_editable = ('title', 'category' ,'image', 'price', 'is_published')
+    list_editable = ('is_published', )
+    prepopulated_fields = {"slug": ("title",)}
 
     # Show image in django admin panel
     def image_show(self, obj):
@@ -18,6 +19,7 @@ class ProductAdmin(admin.ModelAdmin):
         return "None"
 
     image_show.__name__ = "Image"
+
 
 
 
