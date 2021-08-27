@@ -1,0 +1,527 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Londrina+Shadow&display=swap");
+body {
+  padding: null;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1 {
+  text-decoration: none;
+  font-size: 35px;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 400;
+  color: #3f3f3f;
+}
+
+ul, li {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+input, textarea {
+  outline: none;
+}
+
+.header {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background-color: #ffffff;
+  margin: 30px 0px 0px 0px;
+}
+
+.header .navbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header .navbar .logo {
+  margin: 0;
+  height: 110px;
+}
+
+.header .navbar .col-md-6 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.header .navbar .col-md-6 .menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header .navbar .col-md-6 .menu li {
+  margin-right: 30px;
+}
+
+.header .navbar .col-md-6 .menu li a {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  font-size: 15px;
+  font-family: 'Ralyway', sans-serif;
+  color: #202020;
+}
+
+.header .navbar .col-md-6 .menu li a:hover {
+  color: #8305a8;
+}
+
+.header .navbar #login_bacet {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.header .navbar #login_bacet .login {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  margin-right: 30px;
+}
+
+.header .navbar #login_bacet .login img {
+  height: 40px;
+  width: 40px;
+}
+
+.header .navbar #login_bacet .login a {
+  -webkit-transform: none;
+          transform: none;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  font-size: 15px;
+  font-family: 'Ralyway', sans-serif;
+  color: #202020;
+  margin: 0;
+}
+
+.header .navbar #login_bacet .login a:hover {
+  color: #8305a8;
+}
+
+.header .navbar #login_bacet .bacet {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  height: 35px;
+  width: 65px;
+  background-color: #7905ff;
+  border-radius: 25px;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 15px;
+  font-family: 'Ralyway', sans-serif;
+  color: #f3f3f3;
+}
+
+.header .navbar #login_bacet .bacet img {
+  height: 20px;
+  width: 20px;
+}
+
+.header .navbar #login_bacet .bacet .line {
+  border-left: 1.5px solid #f3f3f3;
+  height: 20px;
+}
+
+.header .navbar #login_bacet .bacet:hover {
+  background-color: #8200a7;
+}
+
+.section {
+  margin: 30px 0px 0px 0px;
+}
+
+.section #banner {
+  background-color: #c4c4c4;
+  height: 380px;
+}
+
+.section #cardAreaSmall {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+}
+
+@media screen and (max-width: 580px) {
+  .section #cardAreaSmall {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+.section #cardAreaSmall .col-md-12 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  padding: 0;
+}
+
+.section #cardAreaSmall .col-md-12 h1 {
+  padding: 30px 0 30px 0;
+}
+
+.section #cardAreaSmall .col-md-3 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.section #cardAreaSmall .col-md-3 .cardS {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 55px 0 0 0;
+  height: 120px;
+  width: 255px;
+  background: #FFFFFF;
+  -webkit-box-shadow: 0 12px 20px #dbdbdb6b, 0 10px 10px #dbdbdb6b;
+          box-shadow: 0 12px 20px #dbdbdb6b, 0 10px 10px #dbdbdb6b;
+  border-radius: 10px;
+}
+
+.section #cardAreaSmall .col-md-3 .cardS img {
+  width: 80px;
+}
+
+.section #cardAreaSmall .col-md-3 .cardS h3 {
+  font-size: 12px;
+  font-family: 'Ralyway', sans-serif;
+  font-weight: 400;
+  color: #202020;
+}
+
+.section #cardAreaSmall .col-md-3 .cardS a {
+  font-size: 12px;
+  font-family: 'Ralyway', sans-serif;
+  color: #686868;
+}
+
+.section #cardAreaSmall .col-md-3 .cardS .text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.section #cardAreaSmall .col-md-3 .cardS .text h3, .section #cardAreaSmall .col-md-3 .cardS .text a {
+  padding: 0 0 0 20px;
+}
+
+.section #cardAreaBig {
+  margin-top: 123px;
+}
+
+.section #cardAreaBig .col-md-12 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 0 10px 0;
+}
+
+.section #cardAreaBig .col-md-12 h1 {
+  position: absolute;
+}
+
+.section #cardAreaBig .col-md-12 p {
+  font-family: 'Londrina Shadow', cursive;
+  color: #d3c0ef;
+  margin-left: 45px;
+  font-size: 150px;
+}
+
+.section #cardAreaBig .col-xl-3.col-md-4.col-sm-6 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.section #cardAreaBig .col-xl-3.col-md-4.col-sm-6 .cardBig {
+  width: 255px;
+  height: 265px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+  margin: 55px 0 0 0;
+}
+
+.section #cardAreaBig .col-xl-3.col-md-4.col-sm-6 .front {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #dbdbdb6b;
+}
+
+.section #cardAreaBig .col-xl-3.col-md-4.col-sm-6 .front .img img {
+  height: 180px;
+  width: 180px;
+}
+
+.section #cardAreaBig .col-xl-3.col-md-4.col-sm-6 .front .img h3 {
+  font-family: 'Ralyway', sans-serif;
+  text-align: center;
+}
+
+.section #cardAreaBig .col-xl-3.col-md-4.col-sm-6 .front, .section #cardAreaBig .col-xl-3.col-md-4.col-sm-6 .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  -webkit-transition: 1s;
+  transition: 1s;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  border-radius: 30px 30px 0 0;
+}
+
+.section #cardAreaBig .col-xl-3.col-md-4.col-sm-6 .back {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+  background-color: #dbdbdb6b;
+}
+
+.section #cardAreaBig .col-xl-3.col-md-4.col-sm-6 .back h3 {
+  font-family: 'Ralyway', sans-serif;
+  font-weight: 400;
+  color: #8205a8a9;
+  margin: 35px 0 0 0;
+}
+
+.section #cardAreaBig .col-xl-3.col-md-4.col-sm-6 .back p {
+  font-family: 'Ralyway', sans-serif;
+  font-weight: 300;
+  color: #202020;
+  margin: 35px 0 0 0;
+}
+
+.section #cardAreaBig .col-xl-3.col-md-4.col-sm-6 .cardBig:hover .front {
+  -webkit-transform: rotateY(190deg);
+          transform: rotateY(190deg);
+}
+
+.section #cardAreaBig .col-xl-3.col-md-4.col-sm-6 .cardBig:hover .back {
+  -webkit-transform: rotateY(360deg);
+          transform: rotateY(360deg);
+}
+
+.section #cardAreaBig .col-xl-3.col-md-4.col-sm-6 .areabuton {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 255px;
+  height: 65px;
+  border-radius: 0 0 30px 30px;
+  margin: 0;
+  background-color: #dbdbdb6b;
+}
+
+.section #cardAreaBig .col-xl-3.col-md-4.col-sm-6 .areabuton .text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+}
+
+.section #cardAreaBig .col-xl-3.col-md-4.col-sm-6 .areabuton .text h4 {
+  margin: 0 0 0 10px;
+}
+
+.section #cardAreaBig .col-xl-3.col-md-4.col-sm-6 .areabuton .text button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 50px;
+  width: 50px;
+  background-color: #8305a8;
+  border: none;
+  border-radius: 50%;
+  margin: 0 10px 0 0;
+  color: #efefef;
+  font-size: 40px;
+  font-family: 'Oswald', sans-serif;
+}
+
+footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 50px 0 0 0;
+  height: 50px;
+  background-color: #e4e4e4;
+}
+
+footer .col-md-12 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+footer .col-md-12 .txt {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+
+footer .col-md-12 .txt p {
+  margin: 0;
+  color: #202020;
+  font-size: 15px;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 400;
+}
+
+footer .col-md-12 .link img {
+  width: 30px;
+}
+
+@media screen and (max-width: 992px) {
+  .navbar .menu, .navbar #login_bacet {
+    display: none !important;
+  }
+  .navbar .col-md-6 {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  #cardAreaBig .col-md-12 {
+    -webkit-box-pack: center !important;
+        -ms-flex-pack: center !important;
+            justify-content: center !important;
+  }
+  #cardAreaBig .col-md-12 p {
+    opacity: 70% !important;
+    margin: 0 !important;
+  }
+  #cardAreaSmall .col-md-12 {
+    -webkit-box-pack: center !important;
+        -ms-flex-pack: center !important;
+            justify-content: center !important;
+  }
+}
+/*# sourceMappingURL=style.css.map */
