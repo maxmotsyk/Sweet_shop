@@ -1,0 +1,9 @@
+*.scss linguist-language=Python
+*.css linguist-language=Python
+static/* linguist-vendored
+
+cart.scss linguist-vendored=false
+cart.css linguist-vendored=false
+
+main.scss linguist-vendored=false
+main.css linguist-vendored=false

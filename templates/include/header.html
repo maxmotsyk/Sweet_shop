@@ -1,3 +1,4 @@
+{% load static %}
 <header>
     <div class="container">
         <div class="row">
@@ -5,7 +6,7 @@
                 <!-- logo -->
                 <div id="logo" class="col-3">
                     <div class="">
-                        <img class="logo" src="../shop/templates/mainpage/img/logo.png" alt="logo">
+                        <img class="logo" src="{% static 'assets/logo.png' %}" alt="logo">
                     </div>
                 </div>
                 <!-- Main menu -->
@@ -41,7 +42,7 @@
                 <!-- busket button  -->
                 <div id="login_bacet" class="col-3">
                     <div class="bacet">
-                        <img src="../shop/templates/mainpage/img/shopping-basket.png" alt="">
+                        <img src="{% static "assets/shopping-basket.png" %}" alt="">
                         <div class="line"></div>
                         <a>2</a>
                     </div>

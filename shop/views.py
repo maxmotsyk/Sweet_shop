@@ -1,26 +1,15 @@
+from django.views.generic import ListView
 from cart.forms import CartAddProductForm
-from django.contrib import messages
-from django.http import HttpResponseRedirect
-from django.shortcuts import render
-
-from .models import *
+from .models import Product
 
 
-def index(request):
-    products_sort = Product.objects.all()[:4]
-    products = Product.objects.all()
-    cart_product_form = CartAddProductForm()
-    context = {
-        "products_sort" : products_sort,
-        "products" : products,
-        'cart_product_form': cart_product_form,
-    }
-    return render(request, 'main/index.html', context)
+class HomeView(ListView):
+    model = Product
+    context_object_name = 'products'
+    template_name = 'tape/index.html'
 
-    
-    
-
-
-
-
-
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['product_sort'] = Product.objects.all()[:4]
+        context['cart_product_form'] = CartAddProductForm()
+        return context

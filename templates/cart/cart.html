@@ -2,123 +2,123 @@
 
 {% block section %}
     <section class="section">
-    <div class="container">
-        <div id="item_name_row" class="row">
-            <div id="item_name" class="col-md-12">
-                <h1>
-                    Вміст кошика
-                </h1>
-            </div>
-        </div>
-        <!-- product in the basket start -->
-        <div id="product_in_bascet_row" class="row">
-            <div id="img_and_name" class="col">
-                <img src="../../shop/templates/basket/img/1.png" alt="">
-                <p>Торт</p>
-            </div>
-
-            <div id="count_price_delete" class="col">
-                <div class="count">
-                    <button>-</button>
-                    <p>5</p>
-                    <button>+</button>
-                </div>
-
-                <div class="price_delete">
-                    <p>50$</p>
-                    <button class="buttoneDelete">&times;</button>
+        <div class="container">
+            <div id="item_name_row" class="row">
+                <div id="item_name" class="col-md-12">
+                    <h1>
+                        Вміст кошика
+                    </h1>
                 </div>
             </div>
-        </div>
-        <!-- product in the basket end -->
+            <!-- product in the basket start -->
+            <div id="product_in_bascet_row" class="row">
+                <div id="img_and_name" class="col">
+                    <img src="../../shop/templates/basket/img/1.png" alt="">
+                    <p>Торт</p>
+                </div>
 
+                <div id="count_price_delete" class="col">
+                    <div class="count">
+                        <button>-</button>
+                        <p>5</p>
+                        <button>+</button>
+                    </div>
 
-    </div>
-
-
-    <div id="sending_form" class="container">
-
-        <div id="item_text_row" class="row">
-            <div id="text_name" class="col-md-12">
-                <h1>
-                    Оформлення замовлення
-                </h1>
-            </div>
-        </div>
-        <!-- sending form start-->
-        <div id="sending_form_row" class="row">
-
-            <div class="col-md-4">
-                <div>
-                    <input placeholder="Імя">
+                    <div class="price_delete">
+                        <p>50$</p>
+                        <button class="buttoneDelete">&times;</button>
+                    </div>
                 </div>
             </div>
+            <!-- product in the basket end -->
 
-            <div class="col-md-4">
-                <div>
-                    <input placeholder="Прізвисько">
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div>
-                    <input placeholder="Email">
-                </div>
-            </div>
 
         </div>
-        <!-- field number -->
-        <div id="sending_form_row" class="row">
-            <div class="col-md-4">
-                <div>
-                    <input placeholder="Телефон">
+
+
+        <div id="sending_form" class="container">
+
+            <div id="item_text_row" class="row">
+                <div id="text_name" class="col-md-12">
+                    <h1>
+                        Оформлення замовлення
+                    </h1>
                 </div>
             </div>
-            <!-- field cite -->
-            <div class="col-md-4">
-                <div>
-                    <input placeholder="Місто">
+            <!-- sending form start-->
+            <div id="sending_form_row" class="row">
+
+                <div class="col-md-4">
+                    <div>
+                        <input placeholder="Імя">
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div>
+                        <input placeholder="Прізвисько">
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div>
+                        <input placeholder="Email">
+                    </div>
+                </div>
+
+            </div>
+            <!-- field number -->
+            <div id="sending_form_row" class="row">
+                <div class="col-md-4">
+                    <div>
+                        <input placeholder="Телефон">
+                    </div>
+                </div>
+                <!-- field cite -->
+                <div class="col-md-4">
+                    <div>
+                        <input placeholder="Місто">
+                    </div>
+                </div>
+                <!-- field adress -->
+                <div class="col-md-4">
+                    <div>
+                        <input placeholder="Адреса замовлення">
+                    </div>
                 </div>
             </div>
-            <!-- field adress -->
-            <div class="col-md-4">
-                <div>
-                    <input placeholder="Адреса замовлення">
+            <!-- field comment -->
+            <div id="sending_form_row" class="row">
+                <div class="col-md-12 coment">
+                    <div class="coment">
+                        <textarea placeholder="Коментар до замовлення" name="" id="" cols="30" rows="10"></textarea>
+                    </div>
+                </div>
+            </div>
+            <!-- sending form end-->
+        </div>
+
+        <div id="total_price" class="container">
+            <div class="row">
+                <div class="col p">
+
+                    <h4>
+                        Сума замовлення:
+                    </h4>
+                    <h3>
+                        500$
+                    </h3>
+
+                </div>
+
+                <div class="col b">
+                    <button>
+                        Замовити
+                    </button>
                 </div>
             </div>
         </div>
-        <!-- field comment -->
-        <div id="sending_form_row" class="row">
-            <div class="col-md-12 coment">
-                <div class="coment">
-                    <textarea placeholder="Коментар до замовлення" name="" id="" cols="30" rows="10"></textarea>
-                </div>
-            </div>
-        </div>
-        <!-- sending form end-->
-    </div>
-
-    <div id="total_price" class="container">
-        <div class="row">
-            <div class="col p">
-
-                <h4>
-                    Сума замовлення:
-                </h4>
-                <h3>
-                    500$
-                </h3>
-
-            </div>
-
-            <div class="col b">
-                <button>
-                    Замовити
-                </button>
-            </div>
-        </div>
-    </div>
-</section>
+    </section>
 {% endblock %}
 
 
