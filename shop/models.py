@@ -37,6 +37,7 @@ class Product(models.Model):
 
 
 class Advertisement(models.Model):
+    name = models.SlugField(verbose_name='Name', max_length=100, blank='True')
     image = models.ImageField(verbose_name='Image', upload_to='advertisment/')
     created_at = models.DateTimeField(verbose_name='Date of published', auto_now_add=False, auto_now=True)
 
@@ -44,7 +45,7 @@ class Advertisement(models.Model):
         db_table = 'product_advertisement'
 
     def __str__(self):
-        return self.id
+        return self.name
 
 
 

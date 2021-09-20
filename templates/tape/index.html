@@ -1,4 +1,5 @@
 {% extends '../base.html' %}
+{% load static %}
 
 {% block section %}
     <section class="section">
@@ -7,22 +8,21 @@
         <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active" data-bs-interval="2100">
-                    <img src="../shop/templates/mainpage/img/baner1.png" class="d-block w-100" alt="...">
+                    <img src="{{ advertisment_last.image.url }}" class="d-block w-100" alt="...">
                 </div>
-                <div class="carousel-item" data-bs-interval="2100">
-                    <img src="../shop/templates/mainpage/img/baner1.png" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item" data-bs-interval="2100">
-                    <img src="../shop/templates/mainpage/img/baner1.png" class="d-block w-100" alt="...">
-                </div>
+                {% for advs in advertisment %}
+                    <div class="carousel-item" data-bs-interval="2100">
+                        <img src="{{ advs.image.url }}" class="d-block w-100" alt="...">
+                    </div>
+                {% endfor %}
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Предыдущий</span>
+                <span class="visually-hidden">Back</span>
             </button>
             <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Следующий</span>
+                <span class="visually-hidden">Next</span>
             </button>
         </div>
         <!-- carousel end -->
@@ -36,74 +36,26 @@
                     Новинки та популярне
                 </h1>
             </div>
+            {% for popular in product_sort %}
             <!-- card Small start -->
-            <div id="card1" class="col-md-3 col-sm-6">
-                <div class="cardS">
-                    <div class="img">
-                        <img src="../shop/templates/mainpage/img/1.png" alt="">
-                    </div>
+                <div id="{{ popular.slug }}" class="col-md-3 col-sm-6">
+                    <div class="cardS">
+                        <div class="img">
+                            <img src="{{ popular.image.url }}" alt="">
+                        </div>
 
-                    <div class="text">
-                        <h3>
-                            Торт
-                        </h3>
-                        <a>
-                            от 300$
-                        </a>
+                        <div class="text">
+                            <h3>
+                                {{ popular.title }}
+                            </h3>
+                            <a>
+                                от {{ popular.price }}$
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
             <!-- card Small end -->
-            <div id="card2" class="col-md-3 col-sm-6">
-                <div class="cardS">
-                    <div class="img">
-                        <img src="../shop/templates/mainpage/img/1.png" alt="">
-                    </div>
-
-                    <div class="text">
-                        <h3>
-                            Торт
-                        </h3>
-                        <a>
-                            от 300$
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div id="card3" class="col-md-3 col-sm-6">
-                <div class="cardS">
-                    <div class="img">
-                        <img src="../shop/templates/mainpage/img/1.png" alt="">
-                    </div>
-
-                    <div class="text">
-                        <h3>
-                            Торт
-                        </h3>
-                        <a>
-                            от 300$
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div id="card4" class="col-md-3 col-sm-6">
-                <div class="cardS">
-                    <div class="img">
-                        <img src="../shop/templates/mainpage/img/1.png" alt="">
-                    </div>
-
-                    <div class="text">
-                        <h3>
-                            Торт
-                        </h3>
-                        <a>
-                            от 300$
-                        </a>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
 
         </div>
     </div>

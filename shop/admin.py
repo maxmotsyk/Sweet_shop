@@ -23,14 +23,13 @@ class ProductAdmin(admin.ModelAdmin):
 
 @admin.register(Advertisement)
 class AdvertismentAdmin(admin.ModelAdmin):
-    list_display = ('id', 'advertisment_img', 'created_at')
+    list_display = ('id', 'img', 'created_at')
     list_display_links = ('id',)
-    list_editable = ('advertisment_img',)
 
     # Show image in django admin panel
-    def advertisment_img(self, obj):
+    def img(self, obj):
         if obj.image:
             return mark_safe("<img src='{}' width='100' />".format(obj.image.url))
         return "None"
 
-    advertisment_img.__name__ = "Image"
+    img.__name__ = "Image"

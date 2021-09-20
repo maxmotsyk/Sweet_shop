@@ -1,8 +1,27 @@
-# Django stuff:
-*.log
-local_settings.py
+.idea
+idea
+.DS_Store
+
+*.egg-info/
+.installed.cfg
+*.egg
+
+dist
 db.sqlite3
 
 __pycache__/
-media/
-gitinstuction.txt
+*/__pycache__/
+*.py[cod]
+.pyc
+*.pyc
+
+!*media/.gitkeep
+media/*
+
+log/debug.log
+
+build
+doc
+home.rst
+make.bat
+Makefile
