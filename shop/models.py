@@ -1,11 +1,6 @@
-import uuid
-
-from django.contrib.auth import get_user_model
-from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
 from django.db import models
 from django.urls import reverse
-from django.utils import timezone
 
 
 class Product(models.Model):
@@ -22,7 +17,6 @@ class Product(models.Model):
         (CAP_CAKE, 'Capcake'),
     }
 
-
     title = models.CharField(verbose_name='Name', max_length=100, blank=False)
     category = models.CharField(verbose_name="Category", max_length=60, choices=CHOICE_CATEGORY, default=CAKE)
     slug = models.SlugField(unique=True)
@@ -32,7 +26,6 @@ class Product(models.Model):
     created_at = models.DateTimeField(verbose_name="Created", auto_now=True, auto_now_add=False)
     is_published = models.BooleanField(verbose_name='Published?', default=True)
 
-    
     class Meta:
         db_table = 'products'
         verbose_name = 'Product'
@@ -43,7 +36,15 @@ class Product(models.Model):
         return self.title
 
 
+class Advertisement(models.Model):
+    image = models.ImageField(verbose_name='Image', upload_to='advertisment/')
+    created_at = models.DateTimeField(verbose_name='Date of published', auto_now_add=False, auto_now=True)
 
+    class Meta:
+        db_table = 'product_advertisement'
+
+    def __str__(self):
+        return self.id
 
 
 
