@@ -3,159 +3,256 @@
 
 {% block section %}
     <section class="section">
-    <!-- carousel start -->
-    <div id="carusel_container" class="container">
-        <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active" data-bs-interval="2100">
-                    <img src="{{ advertisment_last.image.url }}" class="d-block w-100" alt="...">
-                </div>
-                {% for advs in advertisment %}
-                    <div class="carousel-item" data-bs-interval="2100">
-                        <img src="{{ advs.image.url }}" class="d-block w-100" alt="...">
+        <!-- carousel start -->
+        <div id="carusel_container" class="container">
+            <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active" data-bs-interval="2100">
+                        <img src="{{ advertisment_last.image.url }}" class="d-block w-100" alt="...">
                     </div>
-                {% endfor %}
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Back</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-        <!-- carousel end -->
-    </div>
-
-    <div class="container">
-        <div id="cardAreaSmall" class="row">
-
-            <div class="col-md-12">
-                <h1>
-                    Новинки та популярне
-                </h1>
-            </div>
-            {% for popular in product_sort %}
-            <!-- card Small start -->
-                <div id="{{ popular.slug }}" class="col-md-3 col-sm-6">
-                    <div class="cardS">
-                        <div class="img">
-                            <img src="{{ popular.image.url }}" alt="">
+                    {% for advs in advertisment %}
+                        <div class="carousel-item" data-bs-interval="2100">
+                            <img src="{{ advs.image.url }}" class="d-block w-100" alt="...">
                         </div>
-
-                        <div class="text">
-                            <h3>
-                                {{ popular.title }}
-                            </h3>
-                            <a>
-                                от {{ popular.price }}$
-                            </a>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
-            <!-- card Small end -->
-            {% endfor %}
-
-        </div>
-    </div>
-
-    <div class="container">
-        <div id="cardAreaBig" class="row">
-            <div class="col-md-12">
-                <h1>
-                    Торти
-                </h1>
-                <p>
-                    01
-                </p>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Back</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
-            <!-- card big start -->
-            <div class="col-xl-3  col-md-4 col-sm-6">
-                <div class="card">
-                    <div class="cardBig">
-                        <div class="front">
+            <!-- carousel end -->
+        </div>
 
+        <div class="container">
+            <div id="cardAreaSmall" class="row">
+
+                <div class="col-md-12">
+                    <h1>
+                        Новинки та популярне
+                    </h1>
+                </div>
+                {% for popular in product_sort %}
+                    <!-- card Small start -->
+                    <div id="{{ popular.slug }}" class="col-md-3 col-sm-6">
+                        <div class="cardS">
                             <div class="img">
-                                <img src="../shop/templates/mainpage/img/1.png" alt="">
-                                <h3>
-                                    Торти
-                                </h3>
+                                <img src="{{ popular.image.url }}" alt="">
                             </div>
 
-                        </div>
-
-                        <div class="back">
-                            <h3>
-                                Склад
-                            </h3>
-                            <p>dsdfdscsdcsd<br>
-                                dfsdfdsfdad
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="areabuton">
-                        <div class="text">
-                            <h4>
-                                500$
-                            </h4>
-
-                            <button>+</button>
+                            <div class="text">
+                                <h3>
+                                    {{ popular.title }}
+                                </h3>
+                                <a>
+                                    от {{ popular.price }}$
+                                </a>
+                            </div>
                         </div>
                     </div>
+                    <!-- card Small end -->
+                {% endfor %}
+
+            </div>
+        </div>
+
+        <div class="container">
+            <div id="cardAreaBig" class="row">
+                <div class="col-md-12">
+                    <h1>
+                        Торти
+                    </h1>
+                    <p>
+                        01
+                    </p>
                 </div>
+                <!-- card big start -->
+                <div class="col-xl-3  col-md-4 col-sm-6">
+                    {% for product in products %}
+                        {% if product.category == "Cake" %}
+
+                            <div class="card">
+                                <div class="cardBig">
+                                    <div class="front">
+                                        <div class="img">
+                                            <img src="{{ product.image.url }}" alt="">
+                                            <h3>
+                                                {{ product.title }}
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <div class="back">
+                                        <h3>
+                                            Склад
+                                        </h3>
+                                        <p>{{ product.description }}</p>
+                                    </div>
+                                </div>
+                                <div class="areabuton">
+                                    <div class="text">
+                                        <h4>
+                                            {{ product.price }}₴
+                                        </h4>
+                                        <button>+</button>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <!-- card big end -->
             </div>
-            <!-- card big end -->
         </div>
-    </div>
 
-    <div class="container">
-        <div id="cardAreaBig" class="row">
-            <div class="col-md-12">
-                <h1>
-                    Безе
-                </h1>
-                <p>
-                    02
-                </p>
+        <div class="container">
+            <div id="cardAreaBig" class="row">
+                <div class="col-md-12">
+                    <h1>
+                        Безе
+                    </h1>
+                    <p>
+                        02
+                    </p>
+                </div>
+                <!-- card big start -->
+                <div class="col-xl-3  col-md-4 col-sm-6">
+                    {% for product in products %}
+                        {% if product.category == "Marshmello" %}
+
+                            <div class="card">
+                                <div class="cardBig">
+                                    <div class="front">
+                                        <div class="img">
+                                            <img src="{{ product.image.url }}" alt="">
+                                            <h3>
+                                                {{ product.title }}
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <div class="back">
+                                        <h3>
+                                            Склад
+                                        </h3>
+                                        <p>{{ product.description }}</p>
+                                    </div>
+                                </div>
+                                <div class="areabuton">
+                                    <div class="text">
+                                        <h4>
+                                            {{ product.price }}₴
+                                        </h4>
+                                        <button>+</button>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <!-- card big end -->
+
             </div>
-
         </div>
-    </div>
 
 
-    <div class="container">
-        <div id="cardAreaBig" class="row">
-            <div class="col-md-12">
-                <h1>
-                    Капкейк
-                </h1>
-                <p>
-                    03
-                </p>
+        <div class="container">
+            <div id="cardAreaBig" class="row">
+                <div class="col-md-12">
+                    <h1>
+                        Капкейк
+                    </h1>
+                    <p>
+                        03
+                    </p>
+                </div>
+                <!-- card big start -->
+                <div class="col-xl-3  col-md-4 col-sm-6">
+                    {% for product in products %}
+                        {% if product.category == "Capcake" %}
+
+                            <div class="card">
+                                <div class="cardBig">
+                                    <div class="front">
+                                        <div class="img">
+                                            <img src="{{ product.image.url }}" alt="">
+                                            <h3>
+                                                {{ product.title }}
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <div class="back">
+                                        <h3>
+                                            Склад
+                                        </h3>
+                                        <p>{{ product.description }}</p>
+                                    </div>
+                                </div>
+                                <div class="areabuton">
+                                    <div class="text">
+                                        <h4>
+                                            {{ product.price }}₴
+                                        </h4>
+                                        <button>+</button>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <!-- card big end -->
             </div>
-
         </div>
-    </div>
 
-    <div class="container">
-        <div id="cardAreaBig" class="row">
-            <div class="col-md-12">
-                <h1>
-                    Чизкейк
-                </h1>
-                <p>
-                    04
-                </p>
+        <div class="container">
+            <div id="cardAreaBig" class="row">
+                <div class="col-md-12">
+                    <h1>
+                        Чизкейк
+                    </h1>
+                    <p>
+                        04
+                    </p>
+                </div>
+                <!-- card big start -->
+                <div class="col-xl-3  col-md-4 col-sm-6">
+                    {% for product in products %}
+                        {% if product.category == "Chesscake" %}
+
+                            <div class="card">
+                                <div class="cardBig">
+                                    <div class="front">
+                                        <div class="img">
+                                            <img src="{{ product.image.url }}" alt="">
+                                            <h3>
+                                                {{ product.title }}
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <div class="back">
+                                        <h3>
+                                            Склад
+                                        </h3>
+                                        <p>{{ product.description }}</p>
+                                    </div>
+                                </div>
+                                <div class="areabuton">
+                                    <div class="text">
+                                        <h4>
+                                            {{ product.price }}₴
+                                        </h4>
+                                        <button>+</button>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <!-- card big end -->
+
             </div>
-
-
         </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-</section>
+    </section>
 {% endblock %}
